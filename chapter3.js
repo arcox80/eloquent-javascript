@@ -28,3 +28,12 @@ function findShortestWordAmongMixedElements(arr) {
 
 var output = findShortestWordAmongMixedElements([]);
 console.log(output);
+
+
+function listAllValues(obj) {
+  objArr = [];
+  for (const prop in obj) {
+    objArr.push(obj[prop]);
+  }
+  return objArr;
+}
