@@ -1,39 +1,9 @@
-function fromListToObject(array) {
-  let obj = {};
-  array.forEach(function (subArr) {
-    obj[subArr[0]] = subArr[1];
-  });
-  return obj;
-}
+Write a function min that takes two arguments and returns their minimum.
 
-console.log(fromListToObject(arr1));
+// Your code here.
 
+console.log(min(0, 10));
+// → 0
+console.log(min(0, -10));
+// → -10
 
-function findShortestWordAmongMixedElements(arr) {
-  let shortest = "";
-  arr.reduce(function (acc, val) {
-    if (typeof acc === 'string') {
-      shortest = acc;
-      if (val.length < acc.length) {
-        return val;
-      } else {
-        return acc;
-      }
-    } else {
-      return val;
-    }
-  }, []);
-  return shortest;
-}
-
-var output = findShortestWordAmongMixedElements([]);
-console.log(output);
-
-
-function listAllValues(obj) {
-  objArr = [];
-  for (const prop in obj) {
-    objArr.push(obj[prop]);
-  }
-  return objArr;
-}
