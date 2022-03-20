@@ -16,7 +16,15 @@ console.log(findSolution(24));
 
 
 //Write a function min that takes two arguments and returns their minimum.
+const min = (a, b) => {
+  return a < b ? a : b;
+};
 
+//EQ's solution
+function min(a, b) {
+  if (a < b) return a;
+  else return b;
+}
 
 console.log(min(0, 10));
 // → 0
