@@ -156,3 +156,24 @@ const listToArray = (list) => {
   }
   return array;
 };
+
+console.log(listToArray(arrayToList([10, 20, 30, 40])));
+
+const prepend = (value, list) => {
+  return {value, rest: list};
+};
+
+console.log(prepend(10, prepend(20, null)));
+
+//could not figure this one out
+const nth = (list, n) => {
+  if (!list) {
+    return undefined;
+  } else if (n === 0) {
+    return list.value;
+  } else {
+    return nth(list.rest, n - 1);
+  }
+};
+
+console.log(nth(arrayToList([10, 20, 30]), 1));
