@@ -149,7 +149,7 @@ const arrayToList = arr => {
 
 console.log(arrayToList([10, 20, 30, 40]));
 
-const listToArray = (list) => {
+const listToArray = list => {
   let array = [];
   for (let node = list; node; node = node.rest) {
     array.push(node.value);
