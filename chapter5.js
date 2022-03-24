@@ -12,3 +12,13 @@ repeat(3, n => {
     console.log(n, 'is even');
   });
 });
+
+function characterCount(script) {
+  return script.ranges.reduce((count, [from, to]) => {
+    return count + (to - from);
+  }, 0);
+}
+
+console.log(scripts.reduce((a,b) => {
+  return characterCount(a) < characterCount(b) ? b : a;
+}));
