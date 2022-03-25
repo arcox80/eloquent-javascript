@@ -133,3 +133,34 @@ const loop = (value, testFn, updateFn, bodyFn) => {
   }
 };
 loop(3, n => n > 0, n => n - 1, console.log);
+
+/*
+Analogous to the some method, arrays also have an every method. This one returns true when 
+the given function returns true for every element in the array. In a way, some is a version 
+of the || operator that acts on arrays, and every is like the && operator.
+Implement every as a function that takes an array and a predicate function as parameters. 
+Write two versions, one using a loop and one using the some method.
+*/
+//My solution - basically same as EJ's
+const every = (array, test) => {
+  //EJ difference was using for of
+  //for (let element of array) ...
+  for (let i = 0; i < array.length; i++) {
+    if (!test(array[i])) {
+      return false;
+    }
+  }
+  return true;
+};
+
+//EJ's solution when using some
+const every2 = (array, test) => {
+  return !array.some(element => !test(element));
+};
+
+console.log(every2([1, 3, 5], n => n < 10));
+// → true
+console.log(every2([2, 4, 16], n => n < 10));
+// → false
+console.log(every2([], n => n < 10));
+// → true
