@@ -57,6 +57,11 @@ console.log(Math.round(average(
 //Mine same as EJ's
 let arrays = [[1, 2, 3], [4, 5], [6]];
 let flattened = arrays.reduce((acc, val) => acc.concat(val), []);
-
-
 console.log(flattened);
+/*
+//My original solution, which is more efficient, but challenge required used of concat
+let flattened = arrays.reduce((acc, val) => {
+  acc.push(...val);
+  return acc;
+}, []);
+*/
