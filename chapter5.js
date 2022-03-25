@@ -22,6 +22,55 @@ repeat(3, n => {
   });
 });
 
+const SCRIPTS = [{
+  name: "Adlam",
+  ranges: [
+    [125184, 125259],
+    [125264, 125274],
+    [125278, 125280]
+  ],
+  direction: "rtl",
+  year: 1987,
+  living: true,
+  link: "https://en.wikipedia.org/wiki/Fula_alphabets#Adlam_alphabet"
+},
+{
+  name: "Caucasian Albanian",
+  ranges: [
+    [66864, 66916],
+    [66927, 66928]
+  ],
+  direction: "ltr",
+  year: 420,
+  living: false,
+  link: "https://en.wikipedia.org/wiki/Caucasian_Albanian_alphabet"
+},
+{
+  name: "Ahom",
+  ranges: [
+    [71424, 71450],
+    [71453, 71468],
+    [71472, 71488]
+  ],
+  direction: "ltr",
+  year: 1250,
+  living: false,
+  link: "https://en.wikipedia.org/wiki/Ahom_alphabet"
+},
+{
+  name: "Coptic",
+  ranges: [
+    [994, 1008],
+    [11392, 11508],
+    [11513, 11520]
+  ],
+  direction: "ltr",
+  year: -200,
+  living: false,
+  link: "https://en.wikipedia.org/wiki/Coptic_alphabet"
+}
+];
+
 function characterCount(script) {
   return script.ranges.reduce((count, [from, to]) => {
     return count + (to - from);
@@ -54,6 +103,10 @@ console.log(Math.round(average(
 // → 204
 
 //Exercises
+/*
+Use the reduce method in combination with the concat method to “flatten” an array of arrays 
+into a single array that has all the elements of the original arrays.
+*/
 //Mine same as EJ's
 let arrays = [[1, 2, 3], [4, 5], [6]];
 let flattened = arrays.reduce((acc, val) => acc.concat(val), []);
@@ -65,3 +118,18 @@ let flattened = arrays.reduce((acc, val) => {
   return acc;
 }, []);
 */
+
+/*
+Write a higher-order function loop that provides something like a for loop statement. It 
+takes a value, a test function, an update function, and a body function. Each iteration, 
+it first runs the test function on the current loop value and stops if that returns false. 
+Then it calls the body function, giving it the current value. Finally, it calls the update 
+function to create a new value and starts from the beginning.
+*/
+//EJ solution - mine worked but was not flexible enough for all values
+const loop = (value, testFn, updateFn, bodyFn) => {
+  for (let newVal = value; testFn(newVal); newVal = updateFn(newVal)) {
+      bodyFn(newVal);
+  }
+};
+loop(3, n => n > 0, n => n - 1, console.log);
