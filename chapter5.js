@@ -22,3 +22,13 @@ function characterCount(script) {
 console.log(scripts.reduce((a,b) => {
   return characterCount(a) < characterCount(b) ? b : a;
 }));
+
+let biggest = null;
+for (let script of SCRIPTS) {
+  if (biggest == null ||
+      characterCount(biggest) < characterCount(script)) {
+    biggest = script;
+  }
+}
+console.log(biggest);
+// → {name: "Han", …}
