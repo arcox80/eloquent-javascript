@@ -52,3 +52,11 @@ console.log(Math.round(average(
 console.log(Math.round(average(
   SCRIPTS.filter(s => !s.living).map(s => s.year))));
 // → 204
+
+//Exercises
+//Mine same as EJ's
+let arrays = [[1, 2, 3], [4, 5], [6]];
+let flattened = arrays.reduce((acc, val) => acc.concat(val), []);
+
+
+console.log(flattened);
